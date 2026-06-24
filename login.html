@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Login - Enso</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --deep-navy: #0B1B3D; 
+            --dark-surface: #122244; 
+            --tech-cyan: #00E5FF; 
+            --cyan-hover: #00B8CC;
+            --slate-gray: #64748B; 
+            --white: #FFFFFF;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            background-color: var(--deep-navy);
+        }
+
+        .auth-wrapper {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle background glow */
+        .auth-wrapper::before {
+            content: ''; position: absolute; top: 0; left: 50%; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 0%, rgba(0, 229, 255, 0.05) 0%, transparent 60%);
+            transform: translateX(-50%); pointer-events: none;
+        }
+
+        .auth-card {
+            background: var(--dark-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            width: 100%; max-width: 420px;
+            padding: 32px 40px;
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+            position: relative; z-index: 1;
+            text-align: center;
+        }
+
+        .auth-logo { font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 800; color: var(--white); letter-spacing: 2px; margin-bottom: 8px; display: flex; justify-content: center; align-items: center; gap: 12px; }
+        .auth-logo img { width: 28px; filter: brightness(0) invert(1); }
+        .auth-subtitle { font-family: 'Inter', sans-serif; font-size: 14px; color: var(--slate-gray); margin-bottom: 24px;  }
+
+        /* SSO Buttons */
+        .sso-group { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+
+        .btn-sso {
+            display: flex; align-items: center; justify-content: center; gap: 12px;
+            width: 100%; padding: 12px;
+            background: transparent; border: 1px solid rgba(255,255,255,0.15); border-radius: 8px;
+            font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--white);
+            text-decoration: none; transition: all 0.2s ease; cursor: pointer;
+        }
+        .btn-sso:hover { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.3); }
+
+        .sso-icon { font-size: 18px; width: 20px; text-align: center; }
+        .icon-google { color: #EA4335; }
+        .icon-apple { color: #FFFFFF; font-size: 20px; } 
+        .icon-microsoft { color: #00A4EF; }
+
+        .divider { display: flex; align-items: center; margin: 24px 0; color: var(--slate-gray); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .divider::before, .divider::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.1); }
+        .divider span { padding: 0 16px; }
+
+        /* Form Inputs */
+        .input-group { text-align: left; margin-bottom: 16px; }
+        .input-label { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600; color: var(--slate-gray); margin-bottom: 8px; }
+        .text-input { width: 100%; padding: 12px; border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; background-color: rgba(0,0,0,0.2); font-family: 'Inter', sans-serif; font-size: 14px; color: var(--white); outline: none; transition: all 0.2s ease; box-sizing: border-box; }
+        .text-input:focus { border-color: var(--tech-cyan); background-color: rgba(0, 229, 255, 0.02); }
+
+        .btn-submit { width: 100%; background: var(--tech-cyan); color: var(--deep-navy); border: none; padding: 12px; border-radius: 8px; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 15px; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 12px rgba(0, 229, 255, 0.15); margin-top: 4px; }
+        .btn-submit:hover { background: var(--cyan-hover); transform: translateY(-1px); }
+
+        .auth-footer { margin-top: 16px; font-size: 13px; color: var(--slate-gray); }
+        .auth-footer a { color: var(--tech-cyan); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="auth-wrapper">
+        <div class="auth-card">
+            <div class="auth-logo"><img src="assets/logo/enso_logo_bckground.png" alt="Enso"> ENSO</div>
+            <p class="auth-subtitle">Initialize your workspace.</p>
+
+            <div class="sso-group">
+                <a href="#" class="btn-sso" onclick="alert('Demo Mode: Authentication is disabled on this static presentation page.'); return false;">
+                    <i class="fab fa-google sso-icon icon-google"></i> Continue with Google
+                </a>
+
+                <a href="#" class="btn-sso" onclick="alert('Demo Mode: Authentication is disabled on this static presentation page.'); return false;">
+                    <i class="fab fa-microsoft sso-icon icon-microsoft"></i> Continue with Microsoft
+                </a>
+            </div>
+
+            <div class="divider"><span>Or continue with email</span></div>
+
+            <form class="auth-form" method="POST" action="#">
+                <div class="input-group">
+                    <label class="input-label">Email Address</label>
+                    <input type="email" name="login" class="text-input" placeholder="dani@example.com" required>
+                </div>
+
+                <div class="input-group">
+                    <div style="display: flex; justify-content: space-between;">
+                        <label class="input-label">Password</label>
+                        <a href="#" onclick="alert('Demo Mode: Password reset is disabled on this static presentation page.'); return false;" style="font-size: 11px; color: var(--slate-gray); text-decoration: none;">Forgot?</a>
+                    </div>
+                    <input type="password" name="password" class="text-input" placeholder="••••••••" required>
+                </div>
+
+                <button class="btn-submit" type="submit" onclick="alert('Demo Mode: Authentication is disabled on this static presentation page.'); return false;">Log In</button>
+            </form>
+
+            <div class="auth-footer">
+                Don't have an account? <a href="#" onclick="alert('Demo Mode: Sign up is disabled on this static presentation page.'); return false;">Sign Up</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -404,9 +404,14 @@
         .pricing-title { font-family: 'Montserrat', sans-serif; font-size: 14px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--tech-cyan); margin-bottom: 16px; }
         .pricing-headline { font-family: 'Montserrat', sans-serif; font-size: 40px; font-weight: 800; letter-spacing: -0.5px; margin: 0 0 24px 0; line-height: 1.2; }
         .pricing-subtitle { font-size: 18px; color: var(--slate-gray); line-height: 1.6; font-weight: 400; }
-        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; align-items: center; }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; max-width: 1200px; margin: 0 auto; align-items: stretch; }
+
         .pricing-card { background: var(--white); border: 1px solid rgba(100, 116, 139, 0.2); border-radius: 16px; padding: 48px 32px; display: flex; flex-direction: column; transition: all 0.3s ease; position: relative; }
-        .pricing-card.optimal { background: var(--deep-navy); color: var(--white); border-color: var(--deep-navy); transform: scale(1.05); box-shadow: 0 24px 48px rgba(11, 27, 61, 0.15); z-index: 2; }
+
+
+.pricing-card.optimal { background: var(--deep-navy); color: var(--white); border-color: var(--deep-navy); box-shadow: 0 24px 48px rgba(11, 27, 61, 0.15); z-index: 2; }
+
         .optimal-badge { position: absolute; top: -14px; left: 50%; transform: translateX(-50%); background: var(--tech-cyan); color: var(--deep-navy); padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .plan-name { font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 700; margin: 0 0 8px 0; }
         .pricing-card.optimal .plan-name { color: var(--white); }
@@ -426,7 +431,10 @@
         .pricing-card:not(.optimal) .btn-pricing:hover { background: var(--light-gray); border-color: var(--deep-navy); }
         .pricing-card.optimal .btn-pricing { background: var(--tech-cyan); color: var(--deep-navy); box-shadow: 0 8px 24px rgba(0, 229, 255, 0.2); border: none; }
         .pricing-card.optimal .btn-pricing:hover { background: var(--cyan-hover); transform: translateY(-2px); }
-        @media (max-width: 992px) { .pricing-grid { grid-template-columns: 1fr; max-width: 440px; } .pricing-card.optimal { transform: scale(1); } }
+
+@media (max-width: 992px) { .pricing-grid { grid-template-columns: 1fr; max-width: 440px; } }
+
+
 
         /* --- FOOTER --- */
         .site-footer { background-color: var(--deep-navy); color: var(--slate-gray); padding: 64px 40px 40px 40px; text-align: center; border-top: 1px solid rgba(255,255,255,0.05); }
@@ -478,14 +486,14 @@
                 The quietly confident study engine for high-stakes exams. Stop guessing what to study next and let Enso guide you into deep focus.
             </p>
             
-            <div class="hero-ctas">
-                <a href="{% url 'account_signup' %}" class="btn-primary">
-                    Start Planning for Free <i class="fas fa-arrow-right"></i>
-                </a>
-                <a href="#video-showcase" class="btn-outline">
-                    See Enso in Motion
-                </a>
-            </div>
+<div class="hero-ctas">
+    <a href="login.html" class="btn-primary">
+        Start Planning for Free <i class="fas fa-arrow-right"></i>
+    </a>
+    <a href="#video-showcase" class="btn-outline">
+        See Enso in Motion
+    </a>
+</div>
         </div>
 
         <div class="hero-visual-block">
