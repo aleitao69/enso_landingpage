@@ -424,7 +424,7 @@
 
     <nav class="navbar">
         <a href="/" class="brand-logo">
-            <img src="./images/enso_logo_bckground.png" alt="Enso Mark"> ENSO
+            <img src="./logo/enso_logo_bckground.png" alt="Enso Mark"> ENSO
         </a>
         
         <div class="nav-links">
@@ -433,32 +433,7 @@
             <a href="#pricing" class="nav-link">Pricing</a>
         </div>
 
-        {% if user.is_authenticated %}
-            <div class="nav-user-profile">
-                <a href="{% url 'hubs:dashboard' %}" class="user-profile-link">
-                    {% if user.user_photo %}
-                        <img src="./users/dani.jpg" alt="Profile" class="nav-user-avatar">
-                    {% else %}
-                        <div class="nav-user-avatar text-avatar">
-                            {% if user.first_name %}
-                                {{ user.first_name|make_list|first|upper }}
-                            {% else %}
-                                {{ user.email|make_list|first|upper }}
-                            {% endif %}
-                        </div>
-                    {% endif %}
-                    <span class="nav-user-name">
-                        {% if user.first_name %}
-                            {{ user.first_name|truncatechars:18 }}
-                        {% else %}
-                            {{ user.email|truncatechars:18 }}
-                        {% endif %}
-                    </span>
-                </a>
-            </div>
-        {% else %}
-            <a href="{% url 'account_login' %}" class="nav-login">Log In</a>
-        {% endif %}
+
     </nav>
 
     <div class="hero-container">
@@ -582,7 +557,7 @@
     <div class="video-grid">
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://youtube.com/shorts/W_DQzJTp7Zg?feature=share" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://youtube.com/shorts/W_DQzJTp7Zg?si=s8J4ORtwFaed7aLy" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="video-info">
                 <h3>Institutional Overview</h3>
@@ -592,7 +567,7 @@
 
         <div class="video-card">
             <div class="video-wrapper">
-                <iframe src="https://youtube.com/shorts/z62Ub73VElU?feature=share" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                <iframe src="https://youtube.com/shorts/z62Ub73VElU?si=kf6Ny07KO1WtTGli" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="video-info">
                 <h3>The Anatomy of Enso</h3>
@@ -789,11 +764,7 @@
                 <li><i class="fas fa-check"></i> Cancel anytime</li>
             </ul>
             
-            {% if user.is_authenticated %}
-                <a href="{% url 'accountings:create_checkout_session' plan_type='baseline' %}" class="btn-pricing">Start Monthly</a>
-            {% else %}
-                <a href="{% url 'account_signup' %}?next=/accountings/checkout/baseline/" class="btn-pricing">Start Monthly</a>
-            {% endif %}
+        <a href="#" class="btn-pricing" onclick="alert('Demo Mode: Stripe checkout is disabled on this static presentation page.'); return false;">Start Monthly</a>
         </div>
         
         <div class="pricing-card optimal">
@@ -809,11 +780,7 @@
                 <li><i class="fas fa-check"></i> 6-month continuous access</li>
             </ul>
 
-            {% if user.is_authenticated %}
-                <a href="{% url 'accountings:create_checkout_session' plan_type='study_cycle' %}" class="btn-pricing">Start 6-Month Cycle</a>
-            {% else %}
-                <a href="{% url 'account_signup' %}?next=/accountings/checkout/study_cycle/" class="btn-pricing">Start 6-Month Cycle</a>
-            {% endif %}
+            <a href="#" class="btn-pricing" onclick="alert('Demo Mode: Stripe checkout is disabled on this static presentation page.'); return false;">Start 6-Month Cycle</a>
         </div>
         
         <div class="pricing-card">
@@ -828,11 +795,7 @@
                 <li><i class="fas fa-check"></i> Full academic year access</li>
             </ul>
 
-            {% if user.is_authenticated %}
-                <a href="{% url 'accountings:create_checkout_session' plan_type='long_game' %}" class="btn-pricing">Start Annual</a>
-            {% else %}
-                <a href="{% url 'account_signup' %}?next=/accountings/checkout/long_game/" class="btn-pricing">Start Annual</a>
-            {% endif %}
+            <a href="#" class="btn-pricing" onclick="alert('Demo Mode: Stripe checkout is disabled on this static presentation page.'); return false;">Start Annual</a>
         </div>
     </div>
 </section>
