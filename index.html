@@ -861,27 +861,43 @@
 </footer>
 
 <script>
+    // 1. Existing Carousel Script
     document.addEventListener("DOMContentLoaded", function() {
         const slides = document.querySelectorAll('.carousel-slide');
         if (slides.length < 2) return; 
         
         let currentIndex = 0;
-
-        // Set the first slide to active immediately
         slides[0].classList.add('active');
 
         setInterval(() => {
-            // Remove active class from current slide
             slides[currentIndex].classList.remove('active');
-            
-            // Move to next index
             currentIndex = (currentIndex + 1) % slides.length;
-            
-            // Add active class to new slide
             slides[currentIndex].classList.add('active');
-
-        }, 5000); // Wait 5 seconds so they actually have time to read the UI
+        }, 5000);
     });
+
+    // 2. NEW: Chart Initialization Script
+    document.addEventListener("DOMContentLoaded", function () {
+        const ctx = document.getElementById('ensoAnalyticsChart').getContext('2d');
+        
+        // Define your chart logic here...
+        
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Reading Speed', 'Passive Retention'],
+                datasets: [{
+                    data: [0.64, -0.74],
+                    backgroundColor: [
+                        '#0B1B3D', // This is your Deep Navy
+                        '#0B1B3D'  // This is your Deep Navy
+                    ],
+                }]
+            }
+        })
+
+    });
+ 
 </script>
 
 </body>
