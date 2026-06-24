@@ -9,6 +9,29 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     
     <style>
+
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Keeps 16:9 frame */
+    height: 0;
+    background-color: var(--deep-navy); /* Matches your brand color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* This makes the video fit cleanly without being stretched */
+    object-fit: contain; 
+}
+
+
         /* --- ENSO DESIGN VARIABLES (PREMIUM DARK THEME) --- */
         :root {
             --deep-navy: #0B1B3D; 
