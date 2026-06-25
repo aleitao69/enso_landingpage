@@ -459,41 +459,38 @@
     padding: 4px;
     margin-right: 12px;
 }
-
 /* --- MOBILE RESPONSIVE ADJUSTMENTS --- */
 @media (max-width: 768px) {
     .navbar {
         padding: 16px 20px;
-        position: relative; /* Keeps the dropdown attached to the nav */
+        position: relative; 
+        z-index: 999; /* Fixes the overlap: forces navbar to sit above hero text */
     }
     
-    /* Show the hamburger button */
     .mobile-menu-btn {
         display: block; 
+        margin-right: 0;
+        margin-left: 16px; /* Adds space between your name and the hamburger icon */
     }
     
-    /* Hide the user's name to save space */
-    .nav-user-name {
-        display: none; 
-    }
+    /* Notice: The rule hiding .nav-user-name has been removed so your name stays visible! */
     
-    /* Transform the links into a hidden dropdown menu */
     .nav-links {
-        display: none; /* Hidden by default */
+        display: none; 
         flex-direction: column;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--deep-navy);
-        padding: 20px;
+        padding: 24px;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.6); /* Slightly stronger shadow for depth */
     }
 
-    /* This class will be toggled by JavaScript */
     .nav-links.active {
         display: flex; 
+        gap: 24px; /* Adds nice vertical breathing room between the links */
     }
 }
 
@@ -503,7 +500,7 @@
 <body>
 
 <section class="hero-section">
-    <div class="hero-glow"></div>
+    
 <nav class="navbar">
     <a href="/" class="brand-logo">
         <img src="assets/logo/enso_logo_high_white.png" alt="Enso Mark"> ENSO
@@ -516,14 +513,14 @@
     </div>
 
     <div class="nav-user-profile">
-        <button class="mobile-menu-btn" id="mobile-toggle">
-            <i class="fas fa-bars"></i>
-        </button>
-
         <div class="user-profile-link">
             <img src="assets/users/dani.jpg" alt="Dani" class="nav-user-avatar">
             <span class="nav-user-name">Dani Fraser</span>
         </div>
+        
+        <button class="mobile-menu-btn" id="mobile-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
     </div>
 </nav>
 
